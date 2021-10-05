@@ -1,14 +1,14 @@
 package fr.banque;
 
 public class Compte {
-
-    // Static
+    //region Static Attributs
     public static Integer nbCompte = 1;
+    //endregion
 
-    // Attributs
-
-    Integer numero;
-    double solde;
+    //region Attributs
+    private Integer numero;
+    private double solde;
+    //endregion
 
     //region Constructeurs
     public Compte() {
@@ -44,7 +44,7 @@ public class Compte {
     }
     //endregion
 
-    //region Getter Setter
+    //region Getters and Setters
 
     public Integer getNumero() {
         return numero;
@@ -58,12 +58,12 @@ public class Compte {
         return solde;
     }
 
-    private void setSolde(double solde) {
+    protected void setSolde(double solde) {
         this.solde = solde;
     }
     //endregion
 
-    //region static getter setter
+    //region Static Getter Setter
     public static Integer getNbCompte() {
         return nbCompte;
     }

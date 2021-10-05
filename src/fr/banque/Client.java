@@ -3,11 +3,13 @@ package fr.banque;
 import java.util.Arrays;
 
 public class Client {
+    //region Attributs
+    protected String nom, prenom;
+    protected Integer age, numero;
+    protected Compte[] comptes = new Compte[5];
+    //endregion
 
-    String nom, prenom;
-    Integer age, numero;
-    Compte[] comptes = new Compte[5];
-
+    //region Constructeurs
     public Client() {
 
     }
@@ -18,13 +20,15 @@ public class Client {
         this.age = age;
         this.numero = numero;
     }
+    //endregion
 
+    //region Methods
     public void ajouterCompte(Compte unCompte) {
         for (int i = 0; i < this.comptes.length; i++) {
             if (this.comptes[i] == null) {
-                System.out.println("il y a un emplacement de compte vide");
+                // System.out.println("il y a un emplacement de compte vide");
                 this.comptes[i] = unCompte;
-                System.out.println("j'y place ce compte => " + this.comptes[i].toString());
+                // System.out.println("j'y place ce compte => " + this.comptes[i].toString());
                 return;
             }
         }
@@ -33,7 +37,7 @@ public class Client {
 
     public Compte getCompte(Integer numeroCompte) {
         for (Compte compte : this.comptes) {
-            if (compte.numero == numeroCompte) {
+            if (compte.getNumero() == numeroCompte) {
                 System.out.println("Compte:" + numeroCompte + " trouvé!");
                 return compte;
             }
@@ -53,9 +57,9 @@ public class Client {
                 ", comptes=" + Arrays.toString(comptes) +
                 '}';
     }
+    //endregion
 
-    // Getter Setters
-
+    //region Getters and Setters
     public String getNom() {
         return nom;
     }
@@ -95,4 +99,5 @@ public class Client {
     public void setComptes(Compte[] comptes) {
         this.comptes = comptes;
     }
+    //endregion
 }
