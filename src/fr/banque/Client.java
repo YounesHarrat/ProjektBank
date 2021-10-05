@@ -86,7 +86,7 @@ public class Client {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    private void setNumero(Integer numero) {
         this.numero = numero;
     }
 
