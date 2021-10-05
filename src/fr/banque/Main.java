@@ -8,10 +8,10 @@ public class Main {
         Client yaharrat = new Client("Harrat", "Younes", 25, 111222333);
         // New Comptes
         CompteRemunere c1 = new CompteRemunere();
-        Compte c2 = new CompteRemunere();
-        Compte c3 = new CompteRemunere();
-        Compte c4 = new CompteASeuil(Compte.getNbCompte(), 1200, 150);
-        Compte c5 = new CompteASeuil(Compte.getNbCompte(), 120, 150);
+        Compte c2 = new CompteASeuil();
+        Compte c3 = new Compte();
+        Compte c4 = new CompteASeuilRemunere(Compte.getNbCompte(), 1200, 0.15, 50);
+        Compte c5 = new CompteASeuilRemunere(Compte.getNbCompte(), 120, 0.15, 50);
         // Add Comptes to Client
         yaharrat.ajouterCompte(c1);
         yaharrat.ajouterCompte(c2);
@@ -25,7 +25,8 @@ public class Main {
         c1.ajouter(200);
         c1.setTaux(2.5d);
         c1.setTaux(0.5d);
-        c1.retirer(1000);
+        c2.retirer(1000);
+        c3.retirer(500);
         c4.retirer(150);
         c5.retirer(150);
 
@@ -43,5 +44,7 @@ public class Main {
                 System.out.println(c + " a perçu des interets, solde: "+ c.getSolde());
             }
         }
+
+        System.out.println((char)27 + "[32m" + yaharrat.toString());
     }
 }

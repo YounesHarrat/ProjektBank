@@ -1,11 +1,13 @@
 package fr.banque;
 
-public class CompteASeuil extends Compte {
+import java.util.Optional;
+
+public class CompteASeuil extends Compte implements ICompteSeuil{
     //region Attributs
     /*
         représente le montant en dessous du quel le solde ne peut pas déscendre
     */
-    private double seuil;
+    private Double seuil;
     //endregion
 
     //region Constructeurs
@@ -44,13 +46,15 @@ public class CompteASeuil extends Compte {
 
     //region Getters and Setters
 
-    public double getSeuil() {
+    public Double getSeuil() {
         return seuil;
     }
 
-    public void setSeuil(double seuil) {
+    @Override
+    public void setSeuil(Double unSolde) {
         this.seuil = seuil;
     }
+
 
 
     //endregion

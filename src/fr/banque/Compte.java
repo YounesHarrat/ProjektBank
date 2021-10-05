@@ -1,6 +1,6 @@
 package fr.banque;
 
-public class Compte {
+public class Compte implements ICompte{
     //region Static Attributs
     public static Integer nbCompte = 1;
     //endregion
@@ -31,7 +31,13 @@ public class Compte {
     }
 
     public void retirer(double unMontant) {
-        this.setSolde(this.getSolde() - unMontant);
+        System.out.println("Compte::retirer::"+ this.getClass().getSimpleName() +" seuil: "+ this.getSeuil());
+        if (null != this.getSeuil() && this.getSeuil() < this.getSolde() - unMontant) {
+            this.setSolde(this.getSolde() - unMontant);
+        }
+        if (this.getSolde() < 0) {
+            System.out.println("Attention Vous Passez en Négatif!");
+        }
     }
 
 
@@ -50,7 +56,7 @@ public class Compte {
         return numero;
     }
 
-    protected void setNumero(Integer numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -58,8 +64,18 @@ public class Compte {
         return solde;
     }
 
-    protected void setSolde(double solde) {
+    public void setSolde(double solde) {
         this.solde = solde;
+    }
+
+    @Override
+    public Double getSeuil() {
+        return null;
+    }
+
+    @Override
+    public void setSeuil(Double unSolde) {
+
     }
     //endregion
 

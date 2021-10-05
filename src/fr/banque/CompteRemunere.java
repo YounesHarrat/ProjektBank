@@ -1,6 +1,6 @@
 package fr.banque;
 
-public class CompteRemunere extends Compte {
+public class CompteRemunere extends Compte implements ICompteRemunere {
     //region Attributs
     /*
         Représente le pourcentage de rémunération du compte ( sa valeur est entre 0 et 1 )
@@ -31,7 +31,7 @@ public class CompteRemunere extends Compte {
 
     @Override
     public String toString() {
-        return "CompteRemunere{" +
+        return this.getClass().getSimpleName()+"{" +
                 "numero=" + this.getNumero() +
                 ", solde=" + this.getSolde() +
                 ", taux=" + this.getTaux() +
