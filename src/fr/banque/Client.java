@@ -20,17 +20,15 @@ public class Client {
     }
 
     public void ajouterCompte( Compte unCompte) {
-        int cpt = 0;
-        for ( Compte compte: this.comptes ) {
-            if (compte == null) {
+        for (int i = 0; i < this.comptes.length; i++) {
+            if ( this.comptes[i] == null ){
                 System.out.println("il y a un emplacement de compte vide");
-                this.comptes[cpt] = unCompte;
-                System.out.println("j'y place ce compte => "+ this.comptes[cpt].toString());
+                this.comptes[i] = unCompte;
+                System.out.println("j'y place ce compte => "+ this.comptes[i].toString());
                 return;
             }
-            cpt++;
         }
-
+        System.out.println("Vous ne pouvez pas avoir plus de 5 comptes simultanément ! ");
     }
 
     public Compte getCompte(Integer numeroCompte) {
