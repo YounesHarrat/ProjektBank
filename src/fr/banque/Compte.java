@@ -21,17 +21,17 @@ public class Compte {
     public Compte(Integer numero, double solde) {
         this.numero = numero;
         this.solde = solde;
-        Compte.setNbCompte(Compte.getNbCompte()+1);
+        Compte.setNbCompte(Compte.getNbCompte() + 1);
     }
 
     // Methods
 
     public void ajouter(double unMontant) {
-        this.setSolde(this.getSolde()+unMontant);
+        this.setSolde(this.getSolde() + unMontant);
     }
 
     public void retirer(double unMontant) {
-        this.setSolde(this.getSolde()-unMontant);
+        this.setSolde(this.getSolde() - unMontant);
     }
 
 

@@ -19,12 +19,12 @@ public class Client {
         this.numero = numero;
     }
 
-    public void ajouterCompte( Compte unCompte) {
+    public void ajouterCompte(Compte unCompte) {
         for (int i = 0; i < this.comptes.length; i++) {
-            if ( this.comptes[i] == null ){
+            if (this.comptes[i] == null) {
                 System.out.println("il y a un emplacement de compte vide");
                 this.comptes[i] = unCompte;
-                System.out.println("j'y place ce compte => "+ this.comptes[i].toString());
+                System.out.println("j'y place ce compte => " + this.comptes[i].toString());
                 return;
             }
         }
@@ -32,13 +32,13 @@ public class Client {
     }
 
     public Compte getCompte(Integer numeroCompte) {
-        for ( Compte compte: this.comptes ) {
+        for (Compte compte : this.comptes) {
             if (compte.numero == numeroCompte) {
-                System.out.println("Compte:"+ numeroCompte+ " trouvé!");
+                System.out.println("Compte:" + numeroCompte + " trouvé!");
                 return compte;
             }
         }
-        System.out.println("Aucun des comptes de ce Client ne correspond au numero de Compte:"+ numeroCompte);
+        System.out.println("Aucun des comptes de ce Client ne correspond au numero de Compte:" + numeroCompte);
         return null;
     }
 
