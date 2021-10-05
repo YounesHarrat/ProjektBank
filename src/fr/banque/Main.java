@@ -21,7 +21,7 @@ public class Main {
 
         // Tests
         System.out.println((char)27 + "[32m" + yaharrat.toString());
-
+        System.out.println("\n ");
         c1.ajouter(200);
         c1.setTaux(2.5d);
         c1.setTaux(0.5d);

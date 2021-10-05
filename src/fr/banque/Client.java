@@ -36,7 +36,7 @@ public class Client {
     }
 
     public Compte getCompte(Integer numeroCompte) {
-        for (Compte compte : this.comptes) {
+        for (Compte compte : this.getComptes()) {
             if (compte.getNumero() == numeroCompte) {
                 System.out.println("Compte:" + numeroCompte + " trouvé!");
                 return compte;
