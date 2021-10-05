@@ -10,8 +10,7 @@ public class Compte {
     Integer numero;
     double solde;
 
-    // Constructeurs
-
+    //region Constructeurs
     public Compte() {
         this(Compte.getNbCompte(), 1000);
         // this.numero = Compte.getNbCompte();
@@ -23,8 +22,9 @@ public class Compte {
         this.solde = solde;
         Compte.setNbCompte(Compte.getNbCompte() + 1);
     }
+    //endregion
 
-    // Methods
+    //region Methods
 
     public void ajouter(double unMontant) {
         this.setSolde(this.getSolde() + unMontant);
@@ -42,9 +42,9 @@ public class Compte {
                 ", solde=" + solde +
                 '}';
     }
+    //endregion
 
-
-    // Getter Setter
+    //region Getter Setter
 
     public Integer getNumero() {
         return numero;
@@ -61,8 +61,9 @@ public class Compte {
     private void setSolde(double solde) {
         this.solde = solde;
     }
+    //endregion
 
-    // static getter setter
+    //region static getter setter
     public static Integer getNbCompte() {
         return nbCompte;
     }
@@ -70,4 +71,5 @@ public class Compte {
     public static void setNbCompte(Integer nbCompte) {
         Compte.nbCompte = nbCompte;
     }
+    //endregion
 }
