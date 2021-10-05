@@ -35,7 +35,7 @@ public class CompteASeuil extends Compte implements ICompteSeuil{
     }
 
     public void retirer(double uneValeur) {
-        if ( this.getSeuil() < this.getSolde() - uneValeur) {
+        if ( this.getSeuil() <= this.getSolde() - uneValeur) {
             this.setSolde(this.getSolde() - uneValeur);
             System.out.println("Vous venez de retirer "+ uneValeur + " depuis votre compte : "+ this.toString());
         } else {
@@ -51,8 +51,8 @@ public class CompteASeuil extends Compte implements ICompteSeuil{
     }
 
     @Override
-    public void setSeuil(Double unSolde) {
-        this.seuil = seuil;
+    public void setSeuil(Double unSeuil) {
+        this.seuil = unSeuil;
     }
 
 

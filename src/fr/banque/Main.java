@@ -25,7 +25,8 @@ public class Main {
         c1.ajouter(200);
         c1.setTaux(2.5d);
         c1.setTaux(0.5d);
-        c2.retirer(1000);
+        c2.setSeuil(250d);
+        c2.retirer(900);
         c3.retirer(500);
         c4.retirer(150);
         c5.retirer(150);
@@ -39,7 +40,7 @@ public class Main {
         for (Compte c: yaharrat.getComptes()) {
             System.out.println( c + " est une instance de " + c.getClass());
             if (c instanceof CompteRemunere) {
-                System.out.println(c + "va percevoir des interets, solde: "+ c.getSolde());
+                System.out.println(c + " va percevoir des interets, solde: "+ c.getSolde());
                 ((CompteRemunere) c).verserInterets();
                 System.out.println(c + " a perçu des interets, solde: "+ c.getSolde());
             }
