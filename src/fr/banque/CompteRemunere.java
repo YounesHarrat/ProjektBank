@@ -31,7 +31,8 @@ public class CompteRemunere extends Compte implements ICompteRemunere {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName()+"{" +
+        System.out.println();
+        return this.getClass().getSimpleName()+":\n{" +
                 "numero=" + this.getNumero() +
                 ", solde=" + this.getSolde() +
                 ", taux=" + this.getTaux() +

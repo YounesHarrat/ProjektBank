@@ -1,12 +1,14 @@
 package fr.banque;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Client {
     //region Attributs
     protected String nom, prenom;
     protected Integer age, numero;
-    protected Compte[] comptes = new Compte[5];
+//    protected Compte[] comptes = new Compte[5];
+//    protected List<Compte> comptes = new ArrayList<Compte>();
+    protected Map<Integer, Compte> comptes = new TreeMap<Integer, Compte>();
     //endregion
 
     //region Constructeurs
@@ -23,20 +25,25 @@ public class Client {
     //endregion
 
     //region Methods
-    public void ajouterCompte(Compte unCompte) {
-        for (int i = 0; i < this.comptes.length; i++) {
-            if (this.comptes[i] == null) {
-                // System.out.println("il y a un emplacement de compte vide");
-                this.comptes[i] = unCompte;
-                // System.out.println("j'y place ce compte => " + this.comptes[i].toString());
-                return;
-            }
-        }
-        System.out.println("Vous ne pouvez pas avoir plus de 5 comptes simultanément ! ");
+    public void ajouterCompte(Compte unCompte) throws BanqueException {
+
+//        this.getComptes().add(unCompte); // for a List
+        this.getComptes().put(unCompte.getNumero(), unCompte); // for a Map
+
+//        for (int i = 0; i < this.getComptes().size(); i++) {
+//            if (this.getComptes().get(i) == null) {
+//                // System.out.println("il y a un emplacement de compte vide");
+//                this.getComptes().add(unCompte);
+//                // System.out.println("j'y place ce compte => " + this.comptes[i].toString());
+//                return;
+//            }
+//        }
+//        throw new BanqueException("Vous ne pouvez pas avoir plus de 5 comptes simultanément ! ");
     }
 
     public Compte getCompte(Integer numeroCompte) {
-        for (Compte compte : this.getComptes()) {
+        for (int i = 0; i < this.getComptes().size(); i++) {
+            Compte compte = this.getComptes().get(i);
             if (compte.getNumero() == numeroCompte) {
                 System.out.println("Compte:" + numeroCompte + " trouvé!");
                 return compte;
@@ -49,13 +56,24 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", age=" + age +
-                ", numero=" + numero +
-                ", comptes=" + Arrays.toString(comptes) +
+        return "Client \n{" +
+                "nom='" + this.getNom() + '\'' +
+                ", prenom='" + this.getPrenom() + '\'' +
+                ", age=" + this.getAge() +
+                ", numero=" + this.getNumero() +
+                ", comptes=" + this.comptesToString() +
                 '}';
+    }
+
+    public String comptesToString() {
+        String res = "";
+        for (int i = 0; i < this.getComptes().size(); i++) {
+            Compte c = this.getComptes().get(i);
+            if ( null != c) {
+                res += "\n" + c.toString();
+            }
+        }
+        return res;
     }
     //endregion
 
@@ -92,11 +110,27 @@ public class Client {
         this.numero = numero;
     }
 
-    public Compte[] getComptes() {
+//    public Compte[] getComptes() {
+//        return comptes;
+//    }
+//
+//    public void setComptes(Compte[] comptes) {
+//        this.comptes = comptes;
+//    }
+
+//    public List<Compte> getComptes() {
+//        return comptes;
+//    }
+//
+//    public void setComptes(List<Compte> comptes) {
+//        this.comptes = comptes;
+//    }
+
+    public Map<Integer, Compte> getComptes() {
         return comptes;
     }
 
-    public void setComptes(Compte[] comptes) {
+    public void setComptes(Map<Integer, Compte> comptes) {
         this.comptes = comptes;
     }
     //endregion

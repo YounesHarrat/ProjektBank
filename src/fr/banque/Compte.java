@@ -2,7 +2,7 @@ package fr.banque;
 
 public class Compte implements ICompte{
     //region Static Attributs
-    public static Integer nbCompte = 1;
+    public static Integer nbCompte = 0;
     //endregion
 
     //region Attributs
@@ -30,22 +30,29 @@ public class Compte implements ICompte{
         this.setSolde(this.getSolde() + unMontant);
     }
 
-    public void retirer(double unMontant) {
+    public void retirer(double unMontant) throws BanqueException {
         System.out.println("Compte::retirer::"+ this.getClass().getSimpleName() +" seuil: "+ this.getSeuil());
-        if (null != this.getSeuil() && this.getSeuil() < this.getSolde() - unMontant) {
+
+        if ( null != this.getSeuil()) {
+            if (this.getSeuil() < this.getSolde() - unMontant) {
+                this.setSolde(this.getSolde() - unMontant);
+            } else {
+                throw new BanqueException("Vous dépassé votre seuil de : "+ this.getSeuil());
+            }
+        } else {
             this.setSolde(this.getSolde() - unMontant);
-        }
-        if (this.getSolde() < 0) {
-            System.out.println("Attention Vous Passez en Négatif!");
+            if (this.getSolde() < 0) {
+                System.out.println("Attention Vous Passez en Négatif!");
+            }
         }
     }
 
 
     @Override
     public String toString() {
-        return "Compte{" +
-                "numero=" + numero +
-                ", solde=" + solde +
+        return "Compte : \n{" +
+                "numero=" + this.getNumero() +
+                ", solde=" + this.getSolde() +
                 '}';
     }
     //endregion

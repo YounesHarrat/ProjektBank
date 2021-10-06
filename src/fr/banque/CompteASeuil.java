@@ -27,19 +27,19 @@ public class CompteASeuil extends Compte implements ICompteSeuil{
 
     @Override
     public String toString() {
-        return "CompteASeuil{" +
+        return "CompteASeuil \n{" +
                 "numero=" + this.getNumero() +
                 ", solde=" + this.getSolde() +
                 ", seuil=" + this.getSeuil() +
                 '}';
     }
 
-    public void retirer(double uneValeur) {
+    public void retirer(double uneValeur) throws BanqueException {
         if ( this.getSeuil() <= this.getSolde() - uneValeur) {
             this.setSolde(this.getSolde() - uneValeur);
             System.out.println("Vous venez de retirer "+ uneValeur + " depuis votre compte : "+ this.toString());
         } else {
-            System.out.println("Vous ne pouvez pas retirer autant: seuil = "+ this.getSeuil() + " solde = "+ this.getSolde() + " vous souhaiter retirer : "+ uneValeur);
+            throw new BanqueException("Vous ne pouvez pas retirer autant: seuil = "+ this.getSeuil() + " solde = "+ this.getSolde() + " vous souhaiter retirer : "+ uneValeur);
         }
     }
     //endregion

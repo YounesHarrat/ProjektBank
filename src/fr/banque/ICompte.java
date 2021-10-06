@@ -6,7 +6,7 @@ public interface ICompte {
     // Prototypes
 
     void ajouter(double unMontant);
-    void retirer(double unMontant);
+    void retirer(double unMontant) throws BanqueException;
     //endregion
 
 
